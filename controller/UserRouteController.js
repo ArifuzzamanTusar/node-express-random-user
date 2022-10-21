@@ -61,6 +61,7 @@ module.exports.saveUsers = async (req, res) => {
 // update the user Detail
 module.exports.updateUserDetail = (req, res) => {
     const id = Math.floor(Math.random() * users.length) + 1;
+ 
     const newUserDetail = req.body;
     const filter = users.find((user) => user.id === Number(id));
     filter.name = newUserDetail.id || filter.id;
@@ -70,6 +71,13 @@ module.exports.updateUserDetail = (req, res) => {
     filter.address = newUserDetail.address || filter.address;
     filter.photoUrl = newUserDetail.photoUrl || filter.photoUrl;
     res.send(filter);
+    
+    // res.send(newUserDetail);
+
+
+    // const stringifiedDatas = JSON.stringify(preData);
+    // writeFileSync(__dirname + '/../users.json', stringifiedDatas)
+    // return res.send({ preData, message: 'Data saved!' })
 };
 
 
